@@ -63,7 +63,7 @@ jobs:
             {
               attachments: [{
                 color: 'good',
-                text: `a new version has been deployed to https://whispering-waters-52105.herokuapp.com  (${process.env.AS_COMMIT}) by ${process.env.AS_AUTHOR}. Build took ${process.env.AS_TOOK}`
+                text: `a new version has been deployed to https://agile-ridge-62658.herokuapp.com  (${process.env.AS_COMMIT}) by ${process.env.AS_AUTHOR}. Build took ${process.env.AS_TOOK}`
               }]
             }
         env:
