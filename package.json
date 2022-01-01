@@ -4,11 +4,14 @@
   "description": "Exercises of part3 of Full Stack-course",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "webpack-dev-server --open --mode development",
+    "start-prod": "node index.js",
     "watch": "nodemon index.js",
     "lint": "eslint .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:ui": "rm -rf build && cd ../full_stack_exercises/part2/puhelinluettelo && npm run build --prod && cp -r build ../../../full_stack_puhelinluettelo"
+    "test": "jest",
+    "build": "webpack --mode production",
+    "cypress:open": "cypress open",
+    "test:e2e": "cypress run"
   },
   "repository": {
     "type": "git",
@@ -21,15 +24,43 @@
   },
   "homepage": "https://github.com/yumoL/full_stack_puhelinluettelo#readme",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "axios": "^0.18.0",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.0",
     "mongoose": "^5.5.11",
     "mongoose-unique-validator": "^2.0.3",
-    "morgan": "^1.9.1"
+    "morgan": "^1.9.1",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-scripts": "3.0.1"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "nodemon": "^1.19.0"
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.10.0",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "@testing-library/jest-dom": "^5.8.0",
+    "@testing-library/react": "^10.0.4",
+    "babel-jest": "^25.5.1",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^3.6.0",
+    "cypress": "^9.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.11.0",
+    "eslint-plugin-react": "^7.19.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "jest": "^25.5.4",
+    "style-loader": "^1.3.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "PersonService": "../src/service/person.js"
+    }
   }
 }
