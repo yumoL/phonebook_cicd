@@ -78,12 +78,20 @@ app.put('/api/persons/:id', (req, res, next) => {
     .catch(error => next(error))
 })
 
+app.post('/api/testing/reset', async (request, response) => {
+  if (process.env.NODE_ENV !== "test") {
+    return
+  }
+  await Person.deleteMany({})
+  response.status(204).end()
+})
+
 app.get('/health', (req, res) => {
   res.send('ok')
 })
 
 app.get('/version', (req, res) => {
-  res.send('1') // change this string to ensure a new version deployed
+  res.send('2') // change this string to ensure a new version deployed
 })
 
 const unknownEndpoint = (req, res) => {

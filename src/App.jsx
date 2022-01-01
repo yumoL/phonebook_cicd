@@ -44,17 +44,17 @@ export const PersonList = (props) => {
   )
 }
 
-const PersonForm = (props) => {
+export const PersonForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        nimi: <input onChange={props.handleNameChange} value={props.newName} />
+        nimi: <input id="nameInput" onChange={props.handleNameChange} value={props.newName} />
       </div>
       <div>
-        numero: <input onChange={props.handleNumberChange} value={props.newNumber} />
+        numero: <input id="numberInput" onChange={props.handleNumberChange} value={props.newNumber} />
       </div>
       <div>
-        <button type="submit">lisää</button>
+        <button id="addButton" type="submit">lisää</button>
       </div>
     </form>
   )
@@ -110,8 +110,6 @@ const App = () => {
             setPersons(persons.filter(p => p.name.toLowerCase() !== newName.toLowerCase()))
             notify(`Henkilön ${newName} oli jo poistettu`, 'error')
           })
-
-
       }
 
       return

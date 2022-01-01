@@ -7,3 +7,20 @@ describe('Phonebook app', function () {
     cy.contains('Numerot')
   })
 })
+
+describe('Can add new person', function() {
+  const name = 'lissu'
+  const number = '7777777777'
+  beforeEach(function() {
+    cy.request('POST', 'http://localhost:3001/api/testing/reset')
+    cy.visit('http://localhost:3001')
+    cy.get('#nameInput').type(name)
+    cy.get('#numberInput').type(number)
+    cy.get('#addButton').click()
+  })
+
+  it('added person and his number should exist', function() {
+    cy.contains(name)
+    cy.contains(number)
+  })
+})
