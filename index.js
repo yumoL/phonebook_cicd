@@ -81,6 +81,7 @@ app.put('/api/persons/:id', (req, res, next) => {
 app.post('/api/testing/reset', async (req, res) => {
   if (process.env.NODE_ENV !== 'test') {
     res.status(400).send('Can not reset db in production environment!')
+    return
   }
   await Person.deleteMany({})
   res.status(204).end()
