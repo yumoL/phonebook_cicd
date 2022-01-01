@@ -1,2 +1,4 @@
-# full_stack_puhelinluettelo
-Exercises of part3 of Full Stack-course
+# Phonebook application for CICD exercise
+
+This a simple phonebook application that saves people names and their 
+phone numbers. It is mainly used for learning CICD using Github Actions. 
