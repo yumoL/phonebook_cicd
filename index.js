@@ -78,12 +78,12 @@ app.put('/api/persons/:id', (req, res, next) => {
     .catch(error => next(error))
 })
 
-app.post('/api/testing/reset', async (request, response) => {
-  if (process.env.NODE_ENV !== "test") {
+app.post('/api/testing/reset', async (req, res) => {
+  if (process.env.NODE_ENV !== 'test') {
     return
   }
   await Person.deleteMany({})
-  response.status(204).end()
+  res.status(204).end()
 })
 
 app.get('/health', (req, res) => {
